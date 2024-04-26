@@ -1,7 +1,7 @@
 // the first element is taken as the pivot 
 class Quicksort{
     public static void main(String arg[]){
-        int arr[]={4,1,5,2,3};
+        int arr[]={7,0,4,3,8,2,0};
         int n=arr.length;
         recurtion(arr,0,n-1);
         printarr(arr,n);
@@ -11,20 +11,24 @@ class Quicksort{
         int i=low;
         int j=high;
         if(i<j){
-            while(pv>=arr[i] && i<high ){
+            while(pv>=arr[i] && i<=high ){
                 i++;
             }
-            while(pv<arr[j]&& j>low){
+            while(pv<arr[j]&& j>=low){
                 j--;
             }
             if(i<j){
             int temp=arr[i];
             arr[i]=arr[j];
             arr[j]=temp;
+            i++;
+            j++;
             }
         }
-        arr[low]=arr[j];
-        arr[j]=pv;
+        if(j<i){
+            arr[low]=arr[j];
+            arr[j]=pv;
+        }
     return j;
         
     }
